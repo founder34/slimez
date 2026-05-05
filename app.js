@@ -4,6 +4,7 @@ const progressPercent = document.querySelector("#progressPercent");
 const progressFill = document.querySelector("#progressFill");
 const whitelistForm = document.querySelector("#whitelistForm");
 const submissionCard = document.querySelector("#submissionCard");
+const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzyqVDfqvr0yd7QacitU9LQfatqNRn0G3HNW0g6rsRlqMYf4Wg2dn1LC4uefQ5-rrsq/exec";
 
 let completedTasks = 0;
 
@@ -92,6 +93,27 @@ function completeTask(card) {
   unlockTask(taskIndex + 1);
 }
 
+function submitToGoogleSheet(formData) {
+  if (!GOOGLE_SHEET_WEB_APP_URL) {
+    console.warn("Google Sheets is not linked yet. Add your Apps Script Web App URL to GOOGLE_SHEET_WEB_APP_URL.");
+    return Promise.resolve();
+  }
+
+  const payload = new FormData();
+  payload.append("submittedAt", new Date().toISOString());
+  payload.append("source", window.location.href);
+
+  formData.forEach((value, key) => {
+    payload.append(key, value);
+  });
+
+  return fetch(GOOGLE_SHEET_WEB_APP_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: payload,
+  });
+}
+
 document.addEventListener("click", (event) => {
   const proofToggle = event.target.closest(".proof-toggle");
 
@@ -166,18 +188,9 @@ if (whitelistForm) {
       modal.classList.add("active");
     }
 
-    // --- GOOGLE SHEETS INTEGRATION ---
-    // Replace this with your actual Google Apps Script Web App URL
-    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXXXXX/exec';
-    
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors', // Important for Google Script Web Apps
-      body: data
-    })
-    .then(() => console.log('Data sent to Google Sheets'))
-    .catch(error => console.error('Error!', error.message));
-    // ---------------------------------
+    submitToGoogleSheet(data)
+      .then(() => console.log("Whitelist entry sent to Google Sheets"))
+      .catch((error) => console.error("Google Sheets submission failed:", error.message));
 
     submissionCard.replaceChildren();
 
