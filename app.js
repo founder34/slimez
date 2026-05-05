@@ -166,6 +166,19 @@ if (whitelistForm) {
       modal.classList.add("active");
     }
 
+    // --- GOOGLE SHEETS INTEGRATION ---
+    // Replace this with your actual Google Apps Script Web App URL
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXXXXX/exec';
+    
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors', // Important for Google Script Web Apps
+      body: data
+    })
+    .then(() => console.log('Data sent to Google Sheets'))
+    .catch(error => console.error('Error!', error.message));
+    // ---------------------------------
+
     submissionCard.replaceChildren();
 
     const image = document.createElement("img");
