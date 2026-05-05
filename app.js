@@ -154,7 +154,7 @@ if (whitelistForm) {
     const wallet = data.get("wallet");
 
     // Update tweet button link
-    const tweetText = encodeURIComponent(`I just submitted my application in Slimez dungeon! 🧪⚔️\n\nComplete yours here: ${window.location.origin}`);
+    const tweetText = encodeURIComponent(`I just submitted my application in Slimez dungeon! 🧪⚔️\n\nComplete yours here: https://slimezz.xyz`);
     const tweetBtn = document.getElementById("tweetBtn");
     if (tweetBtn) {
       tweetBtn.href = `https://twitter.com/intent/tweet?text=${tweetText}`;
