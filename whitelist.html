@@ -26,87 +26,14 @@
     </nav>
   </header>
 
-  <main class="page-shell application-layout">
-    <section class="application-intro reveal">
-      <p class="eyebrow">Whitelist Application</p>
-      <h1>Complete every task to activate your entry.</h1>
-      <p>Each task unlocks after the previous one is confirmed. Keep your proof links accurate and use an EVM wallet you control.</p>
-      <div class="progress-panel" aria-label="Application progress">
-        <div class="progress-copy">
-          <span id="progressLabel">0 of 4 tasks complete</span>
-          <strong id="progressPercent">0%</strong>
-        </div>
-        <div class="progress-track">
-          <div id="progressFill" class="progress-fill"></div>
-        </div>
+  <main class="page-shell application-layout" style="display: flex; justify-content: center; align-items: center; min-height: 60vh;">
+    <section class="application-intro reveal" style="text-align: center;">
+      <p class="eyebrow">WHITELIST CLOSED</p>
+      <h1>We are closing whitelist applications, stay tuned</h1>
+      <p>Thank you for your interest! Make sure to follow our X account for future updates.</p>
+      <div style="margin-top: 2rem;">
+        <a href="https://x.com/SLIMEZ_ETH" target="_blank" rel="noopener noreferrer" class="button primary">Our X Account</a>
       </div>
-    </section>
-
-    <section class="checklist-shell reveal delay-1" aria-label="Whitelist task checklist">
-      <form id="whitelistForm" class="task-list">
-        <article class="task-card active" data-task="0">
-          <div class="task-head">
-            <span class="task-number">01</span>
-            <div>
-              <h2>Follow our account</h2>
-              <p>Follow the official Slimez account, then drop your username.</p>
-            </div>
-          </div>
-          <a class="task-link" href="https://x.com/SLIMEZ_ETH" target="_blank" rel="noopener noreferrer">Open @SLIMEZ_ETH</a>
-          <label for="username">X username</label>
-          <input id="username" name="username" type="text" placeholder="@yourusername" autocomplete="off" required>
-          <button type="button" class="button primary task-next">Confirm Task</button>
-        </article>
-
-        <article class="task-card locked" data-task="1">
-          <div class="task-head">
-            <span class="task-number">02</span>
-            <div>
-              <h2>Like and repost pinned tweet</h2>
-              <p>Like the pinned tweet and repost it from your account.</p>
-            </div>
-          </div>
-          <a class="task-link" href="https://x.com/SLIMEZ_ETH/status/2052403074858168325" target="_blank" rel="noopener noreferrer">Open pinned tweet</a>
-          <button type="button" class="proof-toggle" id="pinnedTweet" data-confirmed="false" aria-pressed="false">Mark liked + reposted</button>
-          <p class="task-error" data-error-for="pinnedTweet">Please confirm that you liked and reposted the tweet.</p>
-          <button type="button" class="button primary task-next">Confirm Task</button>
-        </article>
-
-        <article class="task-card locked" data-task="2">
-          <div class="task-head">
-            <span class="task-number">03</span>
-            <div>
-              <h2>Comment and drop proof</h2>
-              <p>Comment on the pinned tweet, then paste the comment link.</p>
-            </div>
-          </div>
-          <a class="task-link" href="https://x.com/SLIMEZ_ETH/status/2052403074858168325" target="_blank" rel="noopener noreferrer">Comment on tweet</a>
-          <label for="commentLink">Comment link</label>
-          <input id="commentLink" name="commentLink" type="url" placeholder="https://x.com/..." required>
-          <button type="button" class="button primary task-next">Confirm Task</button>
-        </article>
-
-        <article class="task-card locked" data-task="3">
-          <div class="task-head">
-            <span class="task-number">04</span>
-            <div>
-              <h2>Drop EVM wallet</h2>
-              <p>Submit the wallet address you want whitelisted.</p>
-            </div>
-          </div>
-          <label for="wallet">EVM wallet</label>
-          <input id="wallet" name="wallet" type="text" placeholder="0x..." minlength="42" maxlength="42" required>
-          <button type="submit" class="button primary">Submit Application</button>
-        </article>
-      </form>
-
-      <aside class="submission-card" id="submissionCard" aria-live="polite">
-        <img src="LOGO.jpg" alt="Slimez mascot">
-        <div>
-          <h2>Application Ready</h2>
-          <p>Finish all tasks and your whitelist entry summary will appear here.</p>
-        </div>
-      </aside>
     </section>
   </main>
 
